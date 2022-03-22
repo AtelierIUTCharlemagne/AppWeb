@@ -66,7 +66,7 @@ margin-right: 5px;
 .login_btn{
 color: black;
 background-color: #FFC312;
-width: 100px;
+width: 150px;
 }
 
 .login_btn:hover{
@@ -78,6 +78,7 @@ background-color: white;
 color: white;
 }
 
-.links a{
-margin-left: 4px;
+
+input{
+    margin-bottom: 1em;
 }

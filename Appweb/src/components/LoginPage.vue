@@ -8,32 +8,64 @@
 			<div class="card-body">
 				<form>
 					<div class="input-group form-group">
-						<input type="text" class="form-control" placeholder="username">	
+						<input type="text" class="form-control"  v-model="mail" placeholder="E-mail">	
 					</div>
 					<div class="input-group form-group">
-						<input type="password" class="form-control" placeholder="password">
+						<input type="password" class="form-control"  v-model="password" placeholder="Mot de passe">
 					</div>
-					<div class="row align-items-center remember">
+					<div class="row align-items-right remember">
 						<input type="checkbox">Se souvenir
 					</div>
+					<strong v-if="error" style="color: red;"> Username ou mot de passe incorrect</strong>
 					<div class="form-group">
-						<input type="submit" value="Login" class="btn float-right login_btn">
+						<button type="button" v-on:click="connexion()" class="btn login_btn">Connexion</button>
 					</div>
 				</form>
 			</div>
 			<div class="card-footer">
 				<div class="d-flex justify-content-center links">
-					Don't have an account?<a href="#">Sign Up</a>
+					Pas inscrit ? <a href="#">Inscription</a>
 				</div>
 				<div class="d-flex justify-content-center">
-					<a href="#">Forgot your password?</a>
+					<a href="#">Mot de passe oublié ?</a>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
 </template>
+<script>
+import router from '../router/index.js'
+import axios from 'axios';
+export default {
+  name: 'App',
+  data(){
+		return {
+			mail: '',
+			password : '',
+			error : false,
+		}
+        },
 
+  methods: {
+   connexion(){
+	   if(this.mail != "" && this.password != "") {
+       axios
+       .post('http://docketu.iutnc.univ-lorraine.fr:62349/users/signin',{'email': this.mail, 'passwd': this.password})
+       .then((response) => {
+		   this.$store.state.authenticated = true;
+		   this.$store.state.username = this.mail;
+		   router.push('/');
+		console.log(response);
+		}, (error) => {
+		console.log(error);
+		this.error = true;
+		});
+	   }
+    }
+  }
+}
+</script>
 <style scoped src="@/assets/styles/login.css">
 </style>
 
