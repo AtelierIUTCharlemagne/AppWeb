@@ -8,7 +8,7 @@
 			<div class="card-body">
 				<form>
 					<div class="input-group form-group">
-						<input type="text" class="form-control"  v-model="mail" placeholder="E-mail">	
+						<input class="form-control"  type="email" v-model="mail" placeholder="E-mail">	
 					</div>
 					<div class="input-group form-group">
 						<input type="password" class="form-control"  v-model="password" placeholder="Mot de passe">
@@ -37,6 +37,7 @@
 <script>
 import router from '../router/index.js'
 import axios from 'axios';
+
 export default {
   name: 'App',
   data(){
@@ -53,9 +54,12 @@ export default {
        axios
        .post('http://docketu.iutnc.univ-lorraine.fr:62349/users/signin',{'email': this.mail, 'passwd': this.password})
        .then((response) => {
-		   this.$store.state.authenticated = true;
-		   this.$store.state.username = this.mail;
-		   router.push('/');
+		    if (response.status === 200 ) {
+              this.$store.state.authenticated = true;
+		   	  localStorage.setItem('connected', true);
+			  console.log(localStorage);
+		      router.push('/');
+            }
 		console.log(response);
 		}, (error) => {
 		console.log(error);

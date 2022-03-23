@@ -1,5 +1,5 @@
 <template>
-  <header>
+<div id="app">
    <nav class="navbar navbar-expand-lg navbar-light"  style="background-color: #ff5733;">
    <strong>Web App</strong>
      <div class="collapse navbar-collapse" id="navbarNav">
@@ -8,7 +8,7 @@
             <router-link class="nav-link" to="/">Accueil</router-link>
           </li>
           <li class="nav-item active">
-            <router-link v-if="!this.$store.state.authenticated" class="nav-link" to="/signin">Connexion</router-link>
+            <router-link  v-if="!this.$store.state.authenticated" class="nav-link" to="/signin">Connexion</router-link>
           </li>
            <li class="nav-item active">
             <router-link v-if="!this.$store.state.authenticated"  class="nav-link" to="/signup">Inscription</router-link>
@@ -22,10 +22,21 @@
         </ul>
       </div>
    </nav>
-
    <router-view/>
-  </header>
+</div>
 </template>
 <script>
 
 </script>
+
+<style>
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  height: 100vh;
+
+}
+</style>

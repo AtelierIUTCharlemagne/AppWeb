@@ -1,7 +1,15 @@
 <template>
-<h1>home Page</h1>
-<h3 v-if="this.$store.state.authenticated">Bienvenue {{this.$store.state.username}}</h3>
-</template>
 
+</template>
+<script>
+export default {
+  name: 'App',
+  data() {
+    return {
+    }
+  }
+}
+console.log(localStorage)
+</script>
 <style scoped src="@/assets/styles/home.css">
 </style>

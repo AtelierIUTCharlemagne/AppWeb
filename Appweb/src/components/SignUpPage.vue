@@ -14,7 +14,7 @@
 						<input type="password" class="form-control"  v-model="password" placeholder="Mot de passe">
 					</div>
                     <div class="input-group form-group">
-						<input type="text" class="form-control"  v-model="mail" placeholder="E-mail">	
+						<input  type="email" class="form-control"  v-model="mail" placeholder="E-mail">	
 					</div>
                     
 					<div class="form-group">
@@ -47,8 +47,12 @@ export default {
        axios
        .post('http://docketu.iutnc.univ-lorraine.fr:62349/users/signup',{'username': this.username, 'email': this.mail, 'passwd': this.password})
        .then((response) => {
-        router.push('/signin')
-		console.log(response);
+          if (response.status === 200 ) {
+              this.$store.state.authenticated = true;
+		   	  localStorage.connected = true;
+			  console.log(localStorage);
+		      router.push('/');
+            }
 		}, (error) => {
         this.error = true;
 		console.log(error);

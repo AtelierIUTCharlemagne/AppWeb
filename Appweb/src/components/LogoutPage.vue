@@ -6,8 +6,9 @@
 </div>
 </template>
 <script>
+
 export default {
-  name: 'App',
+  name: 'Logout',
  
     mounted:function(){
           this.$store.commit('logout')

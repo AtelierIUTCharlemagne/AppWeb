@@ -1,3 +1,18 @@
 body{
-    background-color: rgb(207, 196, 255);
+    background-color: rgb(255, 196, 196);
+}
+
+
+#map
+{
+    position: fixed !important; 
+    height: 100% !important;
+    width: 100% !important;
+}
+
+.vue-map{
+    position: fixed !important; 
+    height: 100% !important;
+    width: 100% !important;
+
 }
