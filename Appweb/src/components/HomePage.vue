@@ -11,5 +11,5 @@ export default {
 }
 console.log(localStorage)
 </script>
-<style scoped src="@/assets/styles/home.css">
+<style scoped src="@/assets/css/home.css">
 </style>

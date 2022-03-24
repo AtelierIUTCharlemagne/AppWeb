@@ -7,6 +7,9 @@ import { createStore } from 'vuex';
 import VueGoogleMaps from '@fawmi/vue-google-maps'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import Datepicker from '@vuepic/vue-datepicker';
+import '@vuepic/vue-datepicker/dist/main.css'
+
 
 // Create a new store instance.
 const store = createStore({
@@ -19,7 +22,7 @@ const store = createStore({
     mutations: {
         logout() {
             store.state.authenticated = false;
-            localStorage.setItem('connected', false);
+            localStorage.clear();
             console.log("Déconnecté");
             console.log(localStorage);
         }
@@ -27,9 +30,11 @@ const store = createStore({
 
   })
 //Assign app to a variable
-let app = createApp(App)
+const app = createApp(App)
 //Assign the global variable before mounting
 app.use(store)
+//Datepick
+app.component('Datepicker', Datepicker);
 //Add axios
 app.use(VueAxios, axios)
 //Add map

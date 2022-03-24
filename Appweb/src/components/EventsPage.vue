@@ -18,13 +18,7 @@
 </template>
 <script>
 
- document.addEventListener("DOMContentLoaded", function(e) {
-let resize = document.getElementsByClassName("vue-map");
-resize.item(0).style.position = "absolute";
-resize.item(0).style.height = "400px";
-resize.item(0).style.width = "400px";
-
- });
+ 
 
 export default {
   name: 'App',
@@ -40,10 +34,19 @@ export default {
         , // Along list of clusters
       ]
     }
+  },
+
+  mounted(){
+    document.addEventListener("DOMContentLoaded", function(e) {
+    let resize = document.getElementsByClassName("vue-map");
+    resize.item(0).style.position = "absolute";
+    resize.item(0).style.height = "400px";
+    resize.item(0).style.width = "400px";
+  });
   }
 }
 </script>
-<style scoped src="@/assets/styles/event.css">
+<style scoped src="@/assets/css/event.css">
 </style>
 
 

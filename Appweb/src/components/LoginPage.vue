@@ -37,6 +37,7 @@
 <script>
 import router from '../router/index.js'
 import axios from 'axios';
+import VueJwtDecode from 'vue-jwt-decode'
 
 export default {
   name: 'App',
@@ -56,7 +57,11 @@ export default {
        .then((response) => {
 		    if (response.status === 200 ) {
               this.$store.state.authenticated = true;
+			  const jwt = VueJwtDecode.decode(response.data["data"])
 		   	  localStorage.setItem('connected', true);
+			  localStorage.setItem('token', response.data["data"])
+			  localStorage.setItem('user_id', jwt.id)
+			  localStorage.setItem('username', jwt.username)
 			  console.log(localStorage);
 		      router.push('/');
             }
@@ -70,6 +75,6 @@ export default {
   }
 }
 </script>
-<style scoped src="@/assets/styles/login.css">
+<style scoped src="@/assets/css/login.css">
 </style>
 
