@@ -85,17 +85,21 @@ export default {
               this.error = true;
             }
           );
+
         axios
-          .post("http://docketu.iutnc.univ-lorraine.fr:62345/events/create", {
-            'event': {
-              'title': this.title,
-              'address': this.adress ,
-              'localisation': this.latitude + " " + this.longitude,
-              'token': localStorage.token,
-              'date_events': this.date,
-              'user_id_user': 7
+          .post("http://docketu.iutnc.univ-lorraine.fr:62346/events/create",
+            {
+               "title": "un titre",
+              "address": "à l iut",
+              "localisation": "48.2 6.2",
+              "date_events": "2022-12-12 00:00:00",
+              "user_id_user" : 7
+            },{
+              headers:
+                { Authorization: `Bearer ${localStorage.token}` }
             }
-          })
+            
+          )
           .then(
             (response) => {
               if (response.status === 200) {
@@ -104,6 +108,7 @@ export default {
             },
             (error) => {
               console.log(error);
+              console.log(error.message)
               this.error = true;
             }
           );
