@@ -8,20 +8,30 @@
         <div class="card-body">
           <form>
             <div class="input-group form-group">
-              <input class="form-control" type="titre" v-model="title" placeholder="Titre" />
+              <input
+                class="form-control"
+                type="titre"
+                v-model="title"
+                placeholder="Titre"
+              />
             </div>
-             <Datepicker v-model="date"></Datepicker>
+            <Datepicker v-model="date"></Datepicker>
             <div class="input-group form-group">
-              <input id="autocomplete" class="form-control" v-model="adress" placeholder="Adresse"/>
+              <input
+                id="autocomplete"
+                class="form-control"
+                v-model="adress"
+                placeholder="Adresse"
+              />
             </div>
-           
-            <strong v-if="error" style="color: red">
-              Adress invalide</strong>
+
+            <strong v-if="error" style="color: red"> Adress invalide</strong>
             <div class="form-group">
               <button
                 type="button"
                 v-on:click="create()"
-                class="btn btn-primary">
+                class="btn btn-primary"
+              >
                 Créer
               </button>
             </div>
@@ -32,24 +42,24 @@
   </div>
 </template>
 <script>
-import axios from 'axios';
-import Datepicker from '@vuepic/vue-datepicker';
-import '@vuepic/vue-datepicker/dist/main.css'
+import axios from "axios";
+import Datepicker from "@vuepic/vue-datepicker";
+import "@vuepic/vue-datepicker/dist/main.css";
 import "@/assets/css/tailwind.css";
 
 export default {
-  name: 'Event',
+  name: "Event",
   components: { Datepicker },
 
   data() {
     return {
       date: null,
-      title: '',
-      adress: '',
+      title: "",
+      adress: "",
       api_key: "5a43a5f3e4d79edf5e5279f4823d1e15",
-      error : false, 
-      latitude : '',
-      longitude : ''
+      error: false,
+      latitude: "",
+      longitude: "",
     };
   },
   mounted() {
@@ -61,8 +71,8 @@ export default {
 
   methods: {
     create() {
-       let adress = document.getElementById("autocomplete").value
-       this.adress = adress
+      let adress = document.getElementById("autocomplete").value;
+      this.adress = adress;
       if (this.title != "" && this.adress != "") {
         axios
           .get(
@@ -77,8 +87,8 @@ export default {
               }
               console.log(this.date);
               console.log(response.data["data"][0]);
-              this.latitude = response.data["data"][0].latitude
-              this.longitude = response.data["data"][0].longitude
+              this.latitude = response.data["data"][0].latitude;
+              this.longitude = response.data["data"][0].longitude;
             },
             (error) => {
               console.log(error);
@@ -87,18 +97,19 @@ export default {
           );
 
         axios
-          .post("http://docketu.iutnc.univ-lorraine.fr:62346/events/create",
+          //.post("http://docketu.iutnc.univ-lorraine.fr:62346/events/create",
+          .post(
+            "http://localhost:62345/events/create",
             {
-               "title": "un titre",
-              "address": "à l iut",
-              "localisation": "48.2 6.2",
-              "date_events": "2022-12-12 00:00:00",
-              "user_id_user" : 7
-            },{
-              headers:
-                { Authorization: `Bearer ${localStorage.token}` }
+              title: "un titre",
+              address: "à l iut",
+              localisation: "48.2 6.2",
+              date_events: "2022-12-12 00:00:00",
+              user_id_user: 7,
+            },
+            {
+              headers: { Authorization: `Bearer ${localStorage.token}` },
             }
-            
           )
           .then(
             (response) => {
@@ -108,7 +119,7 @@ export default {
             },
             (error) => {
               console.log(error);
-              console.log(error.message)
+              console.log(error.message);
               this.error = true;
             }
           );
