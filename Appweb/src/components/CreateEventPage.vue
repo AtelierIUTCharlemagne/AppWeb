@@ -34,6 +34,7 @@
 <script>
 import axios from 'axios';
 import Datepicker from '@vuepic/vue-datepicker';
+import router from '../router/index.js'
 import '@vuepic/vue-datepicker/dist/main.css'
 import "@/assets/css/tailwind.css";
 
@@ -103,6 +104,7 @@ export default {
           .then(
             (response) => {
               if (response.status === 200) {
+                 router.push('/events');
               }
               console.log(response);
             },

@@ -45,7 +45,7 @@ export default {
    inscription(){
 	   if(this.username != "" && this.password != "" && this.mail != ""  ) {
        axios
-       .post('http://docketu.iutnc.univ-lorraine.fr:62349/users/signup',{'username': this.username, 'email': this.mail, 'passwd': this.password})
+       .post('http://docketu.iutnc.univ-lorraine.fr:62346/users/signup',{'username': this.username, 'email': this.mail, 'passwd': this.password})
        .then((response) => {
           if (response.status === 200 ) {
               this.$store.state.authenticated = true;

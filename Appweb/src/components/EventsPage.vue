@@ -1,48 +1,30 @@
 <template>
-  <GMapMap
-      :center="center"
-      :zoom="7"
-      map-type-id="terrain"
-  >
-    <GMapCluster>
-      <GMapMarker
-          :key="index"
-          v-for="(m, index) in markers"
-          :position="m.position"
-          :clickable="true"
-          :draggable="true"
-          @click="center=m.position"
-      />
-    </GMapCluster>
-  </GMapMap>
+
 </template>
 <script>
-
+import axios from 'axios';
  
 
 export default {
   name: 'App',
   data() {
     return {
-      center: {lat: 51.093048, lng: 6.842120},
-      markers: [
-        {
-          position: {
-            lat: 51.093048, lng: 6.842120
-          },
-        }
-        , // Along list of clusters
-      ]
+     events :''
     }
   },
 
-  mounted(){
-    document.addEventListener("DOMContentLoaded", function(e) {
-    let resize = document.getElementsByClassName("vue-map");
-    resize.item(0).style.position = "absolute";
-    resize.item(0).style.height = "400px";
-    resize.item(0).style.width = "400px";
-  });
+   
+  mounted:function(){
+     axios
+       .get('http://docketu.iutnc.univ-lorraine.fr:62346/events?user_id=' + localStorage.user_id)
+       .then((response) => {
+		    if (response.status === 200 ) {
+            this.events = response.events
+		        console.log(response);}
+        }, (error) => {
+        console.log(error);
+        this.error = true;
+        });
   }
 }
 </script>
