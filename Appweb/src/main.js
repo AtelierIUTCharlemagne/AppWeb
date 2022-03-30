@@ -37,11 +37,6 @@ app.use(store)
 app.component('Datepicker', Datepicker);
 //Add axios
 app.use(VueAxios, axios)
-//Add map
-app.use(VueGoogleMaps, {
-    load: {
-        key: 'AIzaSyAmL_NuO1yzynT2XWgh3FldmqEzYS-mCrE',
-    }})
 //Use router and mount app
 app.use(router).mount('#app')
 
