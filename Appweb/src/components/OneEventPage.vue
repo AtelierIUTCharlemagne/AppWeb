@@ -154,8 +154,8 @@ export default {
 body {
     font:12px arial;
     color: #222;
-    text-align:center;
-    padding:35px; }
+    text-align:center; 
+}
   
 #participants{
   width: 40vh;
