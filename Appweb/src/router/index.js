@@ -5,6 +5,7 @@ import SignUpPage from '../components/SignUpPage.vue'
 import LogoutPage from '../components/LogoutPage.vue'
 import CreateEventPage from '../components/CreateEventPage.vue'
 import {createRouter, createWebHistory} from 'vue-router'
+import OneEventPageVue from '../components/OneEventPage.vue'
 
 
 const router = new createRouter({
@@ -17,6 +18,7 @@ const router = new createRouter({
       { path: '/logout', name: 'Logout', component: LogoutPage},
       { path: '/events', name: 'Events', component: EventsPage},
       { path: '/create', name: 'Create', component: CreateEventPage},
+      { path: '/event/:id', name: 'Event', component: OneEventPageVue},
     ]
   
   })

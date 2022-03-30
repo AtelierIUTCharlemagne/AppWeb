@@ -101,11 +101,11 @@ export default {
           .post(
             "http://localhost:62345/events/create",
             {
-              title: "un titre",
-              address: "à l iut",
-              localisation: "48.2 6.2",
+              title: this.title,
+              address: this.adress,
+              localisation: this.latitude + "  " + this.longitude,
               date_events: "2022-12-12 00:00:00",
-              user_id_user: 7,
+              user_id_user: localStorage.user_id,
             },
             {
               headers: { Authorization: `Bearer ${localStorage.token}` },

@@ -44,6 +44,9 @@
             <strong v-if="error" style="color: red"
               >Erreur lors de l'inscription</strong
             >
+            <strong v-if="empty" style="color: red"
+            >Champ manquant</strong
+            >
           </form>
         </div>
       </div>
@@ -61,6 +64,7 @@ export default {
       mail: "",
       password: "",
       error: false,
+      empty: false,
     };
   },
 
@@ -68,8 +72,8 @@ export default {
     inscription() {
       if (this.username != "" && this.password != "" && this.mail != "") {
         axios
-          //.post('http://docketu.iutnc.univ-lorraine.fr:62346/users/signup',{'username': this.username, 'email': this.mail, 'passwd': this.password})
-          .post("http://localhost:62346/users/signup", {
+          //.post('http://docketu.iutnc.univ-lorraine.fr:6234/users/signup',{'username': this.username, 'email': this.mail, 'passwd': this.password})
+          .post("http://localhost:62349/users/signup", {
             username: this.username,
             email: this.mail,
             passwd: this.password,
@@ -88,6 +92,8 @@ export default {
               console.log(error);
             }
           );
+      }else{
+        this.empty = true;
       }
     },
   },
