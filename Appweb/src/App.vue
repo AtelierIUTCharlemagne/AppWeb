@@ -4,7 +4,11 @@
       class="navbar navbar-expand-lg navbar-light"
       style="background-color: #ff5733"
     >
-      <strong>Reunionnou</strong>
+<<<<<<< Updated upstream
+      
+=======
+      <strong> Reunionnou</strong>
+>>>>>>> Stashed changes
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item active">
@@ -53,7 +57,9 @@
         </ul>
       </div>
     </nav>
+    
     <router-view />
+<<<<<<< Updated upstream
 
     <!-- test -->
 
@@ -159,12 +165,27 @@
 
 
     <!-- fin -->
+=======
+   
+
+>>>>>>> Stashed changes
   </div>
+  
+
+
+
+
+  
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/carousel/">
+  
 </template>
 <script>
 </script>
 
 <style>
+body{
+  padding:0px;
+}
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -172,6 +193,7 @@
   text-align: center;
   color: #2c3e50;
   height: 100vh;
+  
 }
  .bd-placeholder-img {
         font-size: 1.125rem;
