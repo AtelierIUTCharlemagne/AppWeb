@@ -4,11 +4,9 @@
       class="navbar navbar-expand-lg navbar-light"
       style="background-color: #ff5733"
     >
-<<<<<<< Updated upstream
-      
-=======
+
       <strong> Reunionnou</strong>
->>>>>>> Stashed changes
+
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item active">
@@ -59,9 +57,7 @@
     </nav>
     
     <router-view />
-<<<<<<< Updated upstream
-
-    <!-- test -->
+ <!-- test -->
 
  <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
@@ -165,10 +161,6 @@
 
 
     <!-- fin -->
-=======
-   
-
->>>>>>> Stashed changes
   </div>
   
 
