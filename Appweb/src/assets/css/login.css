@@ -77,7 +77,10 @@ background-color: white;
 .links{
 color: white;
 }
-
+a{
+    margin-left : 0.5rem; 
+    color: white;
+}
 
 input{
     margin-bottom: 1em;

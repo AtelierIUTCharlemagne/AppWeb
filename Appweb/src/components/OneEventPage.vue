@@ -1,4 +1,5 @@
 <template>
+<div>
    <div id="map"></div>
    <div id="participants">
       <h3>Personne ayant répondus :</h3>
@@ -24,6 +25,7 @@
           </ol>
         </div>
     </form>
+   </div>
    </div>
 </template>
 <script>

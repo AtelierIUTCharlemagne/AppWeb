@@ -53,7 +53,7 @@
   </div>
 </template>
 <script>
-import router from "../router/index.js";
+//import router from "../router/index.js";
 import axios from "axios";
 import VueJwtDecode from "vue-jwt-decode";
 
@@ -86,7 +86,7 @@ export default {
                 localStorage.setItem("user_id", jwt.id);
                 localStorage.setItem("username", jwt.username);
                 console.log(localStorage);
-                router.push("/");
+                window.location.href = "/";
               }
               console.log(response);
             },

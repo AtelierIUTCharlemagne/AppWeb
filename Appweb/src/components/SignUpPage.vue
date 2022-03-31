@@ -55,7 +55,7 @@
 </template>
 <script>
 import axios from "axios";
-import router from "../router/index.js";
+//import router from "../router/index.js";
 export default {
   name: "App",
   data() {
@@ -80,11 +80,12 @@ export default {
           })
           .then(
             (response) => {
-              if (response.status === 200) {
+              if (response.status === 201) {
                 this.$store.state.authenticated = true;
                 localStorage.connected = true;
                 console.log(localStorage);
-                router.push("/");
+                window.location.href = "/";
+                console.log('redirected')
               }
             },
             (error) => {

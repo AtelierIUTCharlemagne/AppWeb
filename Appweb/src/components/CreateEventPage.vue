@@ -46,6 +46,7 @@ import axios from "axios";
 import Datepicker from "@vuepic/vue-datepicker";
 import "@vuepic/vue-datepicker/dist/main.css";
 import "@/assets/css/tailwind.css";
+import "@fawmi/vue-google-maps";
 
 export default {
   name: "Event",
